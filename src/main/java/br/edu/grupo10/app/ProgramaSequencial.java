@@ -2,7 +2,6 @@ package br.edu.grupo10.app;
 
 import br.edu.grupo10.ordenacao.MergeSort;
 
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,8 +13,8 @@ public final class ProgramaSequencial {
     }
 
     public static void main(String[] args) {
-        try (Scanner entrada = new Scanner(System.in)) {
-            byte[] vetor = ConsoleVetores.lerVetor(entrada);
+        try (Teclado teclado = new Teclado()) {
+            byte[] vetor = ConsoleVetores.lerVetor(teclado);
             LOGGER.info(() -> String.format(
                     "Iniciando Merge Sort sequencial com %,d elementos.", vetor.length));
 
@@ -26,10 +25,9 @@ public final class ProgramaSequencial {
             LOGGER.info("Ordenacao sequencial concluida.");
             System.out.printf("Tempo sequencial: %.3f ms%n",
                     ConsoleVetores.nanosParaMilissegundos(duracao));
-            ConsoleVetores.oferecerImpressao(entrada, vetor);
+            ConsoleVetores.oferecerImpressao(teclado, vetor);
         } catch (IllegalArgumentException | IllegalStateException erro) {
             LOGGER.log(Level.SEVERE, "Nao foi possivel concluir o programa: " + erro.getMessage(), erro);
         }
     }
 }
-

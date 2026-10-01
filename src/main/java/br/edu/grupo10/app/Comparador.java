@@ -4,7 +4,6 @@ import br.edu.grupo10.ordenacao.MergeSort;
 import br.edu.grupo10.ordenacao.ParallelMergeSort;
 
 import java.util.Arrays;
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -16,8 +15,8 @@ public final class Comparador {
     }
 
     public static void main(String[] args) {
-        try (Scanner entrada = new Scanner(System.in)) {
-            byte[] original = ConsoleVetores.lerVetor(entrada);
+        try (Teclado teclado = new Teclado()) {
+            byte[] original = ConsoleVetores.lerVetor(teclado);
             byte[] sequencial = original.clone();
             byte[] paralelo = original.clone();
 
@@ -46,7 +45,7 @@ public final class Comparador {
                         (double) tempoSequencial / tempoParalelo);
             }
             System.out.println("Validacao: os dois resultados sao identicos.");
-            ConsoleVetores.oferecerImpressao(entrada, paralelo);
+            ConsoleVetores.oferecerImpressao(teclado, paralelo);
         } catch (InterruptedException erro) {
             Thread.currentThread().interrupt();
             LOGGER.log(Level.SEVERE, "A execucao foi interrompida.", erro);
@@ -55,4 +54,3 @@ public final class Comparador {
         }
     }
 }
-

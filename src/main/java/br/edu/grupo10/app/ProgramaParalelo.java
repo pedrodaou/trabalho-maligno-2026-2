@@ -2,7 +2,6 @@ package br.edu.grupo10.app;
 
 import br.edu.grupo10.ordenacao.ParallelMergeSort;
 
-import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -14,8 +13,8 @@ public final class ProgramaParalelo {
     }
 
     public static void main(String[] args) {
-        try (Scanner entrada = new Scanner(System.in)) {
-            byte[] vetor = ConsoleVetores.lerVetor(entrada);
+        try (Teclado teclado = new Teclado()) {
+            byte[] vetor = ConsoleVetores.lerVetor(teclado);
             int processadores = Runtime.getRuntime().availableProcessors();
             ParallelMergeSort ordenador = new ParallelMergeSort();
 
@@ -28,7 +27,7 @@ public final class ProgramaParalelo {
 
             System.out.printf("Tempo paralelo: %.3f ms%n",
                     ConsoleVetores.nanosParaMilissegundos(duracao));
-            ConsoleVetores.oferecerImpressao(entrada, vetor);
+            ConsoleVetores.oferecerImpressao(teclado, vetor);
         } catch (InterruptedException erro) {
             Thread.currentThread().interrupt();
             LOGGER.log(Level.SEVERE, "A execucao foi interrompida.", erro);
@@ -37,4 +36,3 @@ public final class ProgramaParalelo {
         }
     }
 }
-

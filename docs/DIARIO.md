@@ -16,7 +16,8 @@
   medicao com `System.nanoTime()`.
 - Criacao dos primeiros testes automatizados e das instrucoes de execucao.
 - Inclusao do programa auxiliar `MaiorVetorAproximado` apresentado no enunciado.
-- Validacao em JDK 21: compilacao sem avisos, execucao interativa e 8 testes
+- Extracao da leitura e validacao de entrada para a classe `Teclado`.
+- Validacao em JDK 21: compilacao sem avisos, execucao interativa e 10 testes
   automatizados aprovados.
 - **Impressoes da equipe:** a preencher depois da execucao conjunta.
 

@@ -10,6 +10,7 @@ Primeiro marco funcional do trabalho de Merge Sort para vetores de `byte`.
 - rodadas de threads juntadoras, reduzindo os intervalos ate sobrar um;
 - espera explicita com `join()` e propagacao de falhas das threads;
 - preenchimento manual ou aleatorio;
+- leitura e validacao centralizadas na classe `Teclado`;
 - impressao do vetor inteiro, de um intervalo ou de nenhum elemento;
 - medicao isolada dos tempos sequencial e paralelo;
 - comparacao das duas versoes sobre copias da mesma entrada;
@@ -59,7 +60,7 @@ caso contrario, escolha um limite menor, como `-Xmx1G`.
 
 ```text
 src/main/java/br/edu/grupo10/
-|-- app/          # entrada, saida e programas executaveis
+|-- app/          # Teclado, entrada/saida e programas executaveis
 `-- ordenacao/    # algoritmos sequencial e paralelo
 src/test/java/    # testes automatizados
 docs/             # diario, planejamento e relato de testes
