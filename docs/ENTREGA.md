@@ -17,7 +17,7 @@
 
 ## Acoes dependentes da equipe ou do ambiente externo
 
-- [ ] Revisar e confirmar as tarefas, janelas de trabalho e impressoes sugeridas
+- [x] Revisar e confirmar as tarefas, janelas de trabalho e impressoes sugeridas
   no diario reconstruido para que correspondam a experiencia real da equipe.
 - [ ] Se exigido pelo professor, fazer capturas do terminal na maquina da apresentacao.
 - [ ] Enviar `dist/trabalho-maligno-2026-2.zip` ao Canvas e conferir o recebimento.
