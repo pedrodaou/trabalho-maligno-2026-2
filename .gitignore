@@ -3,4 +3,5 @@ out/
 .idea/
 *.iml
 .vscode/
-
+dist/
+__pycache__/

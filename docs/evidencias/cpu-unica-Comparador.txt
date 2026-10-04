@@ -1,0 +1,12 @@
+Classe: br.edu.grupo10.app.Comparador
+Data: 2026-10-04T16:49:26.192054-03:00
+Comando: java -Duser.timezone=America/Sao_Paulo -XX:ActiveProcessorCount=1 -cp target/classes br.edu.grupo10.app.Comparador
+Entrada fornecida (uma linha por resposta):
+(sem entrada)
+Saida original combinada (stdout + stderr):
+Oct 04, 2026 4:49:26 PM br.edu.grupo10.app.Comparador main
+SEVERE: Nao foi possivel concluir a comparacao: O programa paralelo requer pelo menos 2 processadores disponiveis. Use ProgramaSequencial nesta maquina.
+java.lang.IllegalStateException: O programa paralelo requer pelo menos 2 processadores disponiveis. Use ProgramaSequencial nesta maquina.
+	at br.edu.grupo10.ordenacao.ParallelMergeSort.calcularQuantidadeThreads(ParallelMergeSort.java:42)
+	at br.edu.grupo10.app.Comparador.main(Comparador.java:20)
+

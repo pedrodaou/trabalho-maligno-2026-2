@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pt-BR"><meta charset="utf-8"><title>Comparador</title>
+<style>
+body { background:#111827;color:#f1f5f9;margin:36px;font:18px monospace; }
+h1 { font:26px sans-serif; }
+p { font:18px sans-serif;color:#cbd5e1; }
+pre { white-space:pre-wrap;overflow-wrap:anywhere;background:#0b1220;
+      border:1px solid #334155;border-radius:8px;padding:24px;line-height:1.4; }
+</style><h1>Comparador — registro de execucao real</h1>
+<p>Captura da pagina de evidencia com a saida original do programa.
+Nao e uma captura de um terminal interativo.</p>
+<pre>Classe: br.edu.grupo10.app.Comparador
+Data: 2026-10-04T16:49:21.738531-03:00
+Comando: java -Duser.timezone=America/Sao_Paulo -cp target/classes br.edu.grupo10.app.Comparador
+Entrada fornecida (uma linha por resposta):
+7
+1
+38
+27
+43
+3
+9
+82
+10
+1
+
+Saida original combinada (stdout + stderr):
+Quantidade de elementos (maior que zero): Preenchimento: 1 - manual | 2 - aleatorio: Elemento [0] (-128 a 127): Elemento [1] (-128 a 127): Elemento [2] (-128 a 127): Elemento [3] (-128 a 127): Elemento [4] (-128 a 127): Elemento [5] (-128 a 127): Elemento [6] (-128 a 127): Oct 04, 2026 4:49:21 PM br.edu.grupo10.app.Comparador main
+INFO: Executando a versao sequencial.
+Oct 04, 2026 4:49:21 PM br.edu.grupo10.app.Comparador main
+INFO: Executando a versao paralela com 15 threads ordenadoras.
+Tempo sequencial: 0.546 ms
+Tempo paralelo:   6.246 ms
+Speedup (sequencial/paralelo): 0.09x
+Validacao: os dois resultados sao identicos.
+Exibicao: 1 - vetor todo | 2 - intervalo | 3 - nao exibir: [3, 9, 10, 27, 38, 43, 82]
+</pre></html>

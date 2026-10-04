@@ -1,0 +1,21 @@
+Classe: br.edu.grupo10.app.MaiorVetorAproximado
+Data: 2026-10-04T16:49:26.573243-03:00
+Comando: java -Duser.timezone=America/Sao_Paulo -Xmx32m -cp target/classes br.edu.grupo10.app.MaiorVetorAproximado
+Entrada fornecida (uma linha por resposta):
+(sem entrada)
+Saida original combinada (stdout + stderr):
+Estimando o maior tamanho possivel de vetor em Java...
+Alocado com sucesso: 1,000,000 elementos
+Alocado com sucesso: 1,500,000 elementos
+Alocado com sucesso: 2,250,000 elementos
+Alocado com sucesso: 3,375,000 elementos
+Alocado com sucesso: 5,062,500 elementos
+Alocado com sucesso: 7,593,750 elementos
+Alocado com sucesso: 11,390,625 elementos
+Alocado com sucesso: 17,085,936 elementos
+Alocado com sucesso: 25,628,904 elementos
+Falhou em 38,443,356 elementos
+
+Maior vetor que coube (aproximadamente): 25,628,904
+Memoria estimada: 24.44 MB
+Tempo total: 0.05 segundos

@@ -1,0 +1,7 @@
+{
+  "data": "2026-10-04T16:49:37.343898-03:00",
+  "host": "Linux-7.0.0-31-generic-x86_64-with-glibc2.43",
+  "execucao": "Docker eclipse-temurin:21-jdk",
+  "cenarios_console": 13,
+  "observacao_capturas": "Paginas de evidencia da saida real; nao terminal interativo."
+}

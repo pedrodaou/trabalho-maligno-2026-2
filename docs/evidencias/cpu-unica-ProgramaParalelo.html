@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="pt-BR"><meta charset="utf-8"><title>ProgramaParalelo</title>
+<style>
+body { background:#111827;color:#f1f5f9;margin:36px;font:18px monospace; }
+h1 { font:26px sans-serif; }
+p { font:18px sans-serif;color:#cbd5e1; }
+pre { white-space:pre-wrap;overflow-wrap:anywhere;background:#0b1220;
+      border:1px solid #334155;border-radius:8px;padding:24px;line-height:1.4; }
+</style><h1>ProgramaParalelo — registro de execucao real</h1>
+<p>Captura da pagina de evidencia com a saida original do programa.
+Nao e uma captura de um terminal interativo.</p>
+<pre>Classe: br.edu.grupo10.app.ProgramaParalelo
+Data: 2026-10-04T16:49:25.839310-03:00
+Comando: java -Duser.timezone=America/Sao_Paulo -XX:ActiveProcessorCount=1 -cp target/classes br.edu.grupo10.app.ProgramaParalelo
+Entrada fornecida (uma linha por resposta):
+(sem entrada)
+Saida original combinada (stdout + stderr):
+Oct 04, 2026 4:49:25 PM br.edu.grupo10.app.ProgramaParalelo main
+SEVERE: Nao foi possivel concluir o programa: O programa paralelo requer pelo menos 2 processadores disponiveis. Use ProgramaSequencial nesta maquina.
+java.lang.IllegalStateException: O programa paralelo requer pelo menos 2 processadores disponiveis. Use ProgramaSequencial nesta maquina.
+	at br.edu.grupo10.ordenacao.ParallelMergeSort.calcularQuantidadeThreads(ParallelMergeSort.java:42)
+	at br.edu.grupo10.ordenacao.ParallelMergeSort.&lt;init&gt;(ParallelMergeSort.java:22)
+	at br.edu.grupo10.app.ProgramaParalelo.main(ProgramaParalelo.java:17)
+
+</pre></html>

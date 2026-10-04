@@ -1,0 +1,2 @@
+# Logs conservam os espacos e linhas vazias originais emitidos pelos programas.
+docs/evidencias/*.txt whitespace=-blank-at-eol,-blank-at-eof

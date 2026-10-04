@@ -1,0 +1,34 @@
+Classe: br.edu.grupo10.app.ProgramaSequencial
+Data: 2026-10-04T16:49:23.132780-03:00
+Comando: java -Duser.timezone=America/Sao_Paulo -cp target/classes br.edu.grupo10.app.ProgramaSequencial
+Entrada fornecida (uma linha por resposta):
+abc
+0
+3
+9
+1
+-129
+3
+128
+1
+2
+2
+-1
+0
+9
+1
+
+Saida original combinada (stdout + stderr):
+Quantidade de elementos (maior que zero): Entrada invalida. Informe um numero inteiro maior que zero.
+Quantidade de elementos (maior que zero): Entrada invalida. Informe um numero inteiro maior que zero.
+Quantidade de elementos (maior que zero): Preenchimento: 1 - manual | 2 - aleatorio: Entrada invalida. Escolha 1 ou 2.
+Preenchimento: 1 - manual | 2 - aleatorio: Elemento [0] (-128 a 127): Entrada invalida. O valor deve estar entre -128 e 127.
+Elemento [0] (-128 a 127): Elemento [1] (-128 a 127): Entrada invalida. O valor deve estar entre -128 e 127.
+Elemento [1] (-128 a 127): Elemento [2] (-128 a 127): Oct 04, 2026 4:49:23 PM br.edu.grupo10.app.ProgramaSequencial main
+INFO: Iniciando Merge Sort sequencial com 3 elementos.
+Oct 04, 2026 4:49:23 PM br.edu.grupo10.app.ProgramaSequencial main
+INFO: Ordenacao sequencial concluida.
+Tempo sequencial: 0.640 ms
+Exibicao: 1 - vetor todo | 2 - intervalo | 3 - nao exibir: Indice inicial (0 a 2): Entrada invalida. Indice inicial invalido.
+Indice inicial (0 a 2): Indice final inclusivo (0 a 2): Entrada invalida. Indice final invalido.
+Indice final inclusivo (0 a 2): [1, 2]

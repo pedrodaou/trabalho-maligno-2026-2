@@ -1,0 +1,22 @@
+Classe: br.edu.grupo10.app.ProgramaSequencial
+Data: 2026-10-04T16:49:18.512797-03:00
+Comando: java -Duser.timezone=America/Sao_Paulo -cp target/classes br.edu.grupo10.app.ProgramaSequencial
+Entrada fornecida (uma linha por resposta):
+7
+1
+38
+27
+43
+3
+9
+82
+10
+1
+
+Saida original combinada (stdout + stderr):
+Quantidade de elementos (maior que zero): Preenchimento: 1 - manual | 2 - aleatorio: Elemento [0] (-128 a 127): Elemento [1] (-128 a 127): Elemento [2] (-128 a 127): Elemento [3] (-128 a 127): Elemento [4] (-128 a 127): Elemento [5] (-128 a 127): Elemento [6] (-128 a 127): Oct 04, 2026 4:49:18 PM br.edu.grupo10.app.ProgramaSequencial main
+INFO: Iniciando Merge Sort sequencial com 7 elementos.
+Oct 04, 2026 4:49:18 PM br.edu.grupo10.app.ProgramaSequencial main
+INFO: Ordenacao sequencial concluida.
+Tempo sequencial: 0.574 ms
+Exibicao: 1 - vetor todo | 2 - intervalo | 3 - nao exibir: [3, 9, 10, 27, 38, 43, 82]

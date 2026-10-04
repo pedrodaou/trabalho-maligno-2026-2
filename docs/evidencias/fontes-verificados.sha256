@@ -1,0 +1,13 @@
+4a443b8abe27df7afad0a61d0b9b320d078f2895a6c57b679814f9c3d964fd9f  src/main/java/br/edu/grupo10/app/Benchmark.java
+ad09ef987340e75105c61098886713213872f3472315d0429a04ff3334552d75  src/main/java/br/edu/grupo10/app/Comparador.java
+70ef84879becd63bc093a0be26b624eda2daf4ca306b1c3bd0351007587324f1  src/main/java/br/edu/grupo10/app/ConsoleVetores.java
+840ae8eec0c488d8fbe5fab8ae41daf01cb6e15e5dd77294de5e9a8ddb5db4c3  src/main/java/br/edu/grupo10/app/MaiorVetorAproximado.java
+9291321436b243254ce573931ba83609e6cb39cb04dfbbfe0a55f9163269dc63  src/main/java/br/edu/grupo10/app/ProgramaParalelo.java
+c5a2de526ac9fbbe60e2aabfe4ca2c7efdf474bac0fbe3f43167efbebbcd46df  src/main/java/br/edu/grupo10/app/ProgramaSequencial.java
+f91f4ccf91aefc77e53c2ce8360655c346275b798e2aac9c8a037bf55fbd07e8  src/main/java/br/edu/grupo10/app/Teclado.java
+9e77d63cdfa8052e9e34f9da2e236631806a8944706e0786adb9067a91ea46ee  src/main/java/br/edu/grupo10/ordenacao/MergeSort.java
+f1db84e7479234a05d2168fedc3cc0f0afb4c98b8102c036285e9cf16555175d  src/main/java/br/edu/grupo10/ordenacao/ParallelMergeSort.java
+cc55cc3d39e9a5084450a3eb7007b0f5791a508748a906ec0c558c73f3be2519  src/test/java/br/edu/grupo10/app/BenchmarkTest.java
+e4bebd6e64a3cbbcd084e595be040dcd301a50eef145ac0c32030e70d025bbb6  src/test/java/br/edu/grupo10/app/TecladoTest.java
+338c670b387ccd6f19ad9416f5a76bf26b29442e10c9940cffb87f8ede2343de  src/test/java/br/edu/grupo10/ordenacao/MergeSortTest.java
+a1a867dabd5d33f4922e2c1f5235640680fda733bc3aa690021c1cc2a01266d4  src/test/java/br/edu/grupo10/ordenacao/ParallelMergeSortTest.java

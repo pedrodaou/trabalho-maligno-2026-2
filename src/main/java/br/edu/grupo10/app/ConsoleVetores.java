@@ -67,4 +67,9 @@ final class ConsoleVetores {
     static double nanosParaMilissegundos(long nanos) {
         return nanos / 1_000_000.0;
     }
+
+    static void informarFaltaDeMemoria() {
+        System.err.println("Memoria insuficiente para o vetor e os buffers de ordenacao. "
+                + "Reduza a quantidade de elementos ou ajuste -Xmx conforme a memoria disponivel.");
+    }
 }

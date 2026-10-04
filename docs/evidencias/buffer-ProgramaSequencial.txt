@@ -1,0 +1,11 @@
+Classe: br.edu.grupo10.app.ProgramaSequencial
+Data: 2026-10-04T16:49:24.687103-03:00
+Comando: java -Duser.timezone=America/Sao_Paulo -Xmx16m -cp target/classes br.edu.grupo10.app.ProgramaSequencial
+Entrada fornecida (uma linha por resposta):
+9000000
+2
+
+Saida original combinada (stdout + stderr):
+Quantidade de elementos (maior que zero): Preenchimento: 1 - manual | 2 - aleatorio: Oct 04, 2026 4:49:24 PM br.edu.grupo10.app.ProgramaSequencial main
+INFO: Iniciando Merge Sort sequencial com 9,000,000 elementos.
+Memoria insuficiente para o vetor e os buffers de ordenacao. Reduza a quantidade de elementos ou ajuste -Xmx conforme a memoria disponivel.

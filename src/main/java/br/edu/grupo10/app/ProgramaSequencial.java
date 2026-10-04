@@ -26,6 +26,8 @@ public final class ProgramaSequencial {
             System.out.printf("Tempo sequencial: %.3f ms%n",
                     ConsoleVetores.nanosParaMilissegundos(duracao));
             ConsoleVetores.oferecerImpressao(teclado, vetor);
+        } catch (OutOfMemoryError erro) {
+            ConsoleVetores.informarFaltaDeMemoria();
         } catch (IllegalArgumentException | IllegalStateException erro) {
             LOGGER.log(Level.SEVERE, "Nao foi possivel concluir o programa: " + erro.getMessage(), erro);
         }

@@ -1,5 +1,9 @@
 # Plano de entrega em cinco dias
 
+Plano original registrado em 01/10/2026. O fechamento tecnico foi antecipado
+para 04/10/2026; veja [ENTREGA.md](ENTREGA.md) para o estado atual. As sessoes
+planejadas abaixo nao constituem registros de atividades realizadas pela equipe.
+
 ## Dia 1 — MVP executavel (2 horas)
 
 Entender os requisitos, implementar os dois algoritmos, criar a interface de
@@ -31,4 +35,3 @@ console, medir tempos e cobrir os casos essenciais com testes.
 - Produzir capturas das versoes sequencial, paralela e comparativa.
 - Atualizar o relato de testes (maximo de 10 linhas) e concluir o diario.
 - Conferir o conteudo final no Canvas antes do envio.
-

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR"><meta charset="utf-8"><title>ProgramaParalelo</title>
+<style>
+body { background:#111827;color:#f1f5f9;margin:36px;font:18px monospace; }
+h1 { font:26px sans-serif; }
+p { font:18px sans-serif;color:#cbd5e1; }
+pre { white-space:pre-wrap;overflow-wrap:anywhere;background:#0b1220;
+      border:1px solid #334155;border-radius:8px;padding:24px;line-height:1.4; }
+</style><h1>ProgramaParalelo — registro de execucao real</h1>
+<p>Captura da pagina de evidencia com a saida original do programa.
+Nao e uma captura de um terminal interativo.</p>
+<pre>Classe: br.edu.grupo10.app.ProgramaParalelo
+Data: 2026-10-04T16:49:20.087416-03:00
+Comando: java -Duser.timezone=America/Sao_Paulo -cp target/classes br.edu.grupo10.app.ProgramaParalelo
+Entrada fornecida (uma linha por resposta):
+7
+1
+38
+27
+43
+3
+9
+82
+10
+1
+
+Saida original combinada (stdout + stderr):
+Quantidade de elementos (maior que zero): Preenchimento: 1 - manual | 2 - aleatorio: Elemento [0] (-128 a 127): Elemento [1] (-128 a 127): Elemento [2] (-128 a 127): Elemento [3] (-128 a 127): Elemento [4] (-128 a 127): Elemento [5] (-128 a 127): Elemento [6] (-128 a 127): Processadores disponiveis: 16
+Threads ordenadoras: 15
+Oct 04, 2026 4:49:19 PM br.edu.grupo10.ordenacao.ParallelMergeSort ordenar
+INFO: Iniciando 15 threads ordenadoras para 7 elementos.
+Oct 04, 2026 4:49:19 PM br.edu.grupo10.ordenacao.ParallelMergeSort ordenar
+INFO: Rodada de merge 1: 7 threads juntadoras.
+Oct 04, 2026 4:49:19 PM br.edu.grupo10.ordenacao.ParallelMergeSort ordenar
+INFO: Rodada de merge 2: 4 threads juntadoras.
+Oct 04, 2026 4:49:19 PM br.edu.grupo10.ordenacao.ParallelMergeSort ordenar
+INFO: Rodada de merge 3: 2 threads juntadoras.
+Oct 04, 2026 4:49:19 PM br.edu.grupo10.ordenacao.ParallelMergeSort ordenar
+INFO: Rodada de merge 4: 1 threads juntadoras.
+Oct 04, 2026 4:49:19 PM br.edu.grupo10.ordenacao.ParallelMergeSort ordenar
+INFO: Ordenacao paralela concluida.
+Tempo paralelo: 24.136 ms
+Exibicao: 1 - vetor todo | 2 - intervalo | 3 - nao exibir: [3, 9, 10, 27, 38, 43, 82]
+</pre></html>

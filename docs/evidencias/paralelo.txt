@@ -1,0 +1,32 @@
+Classe: br.edu.grupo10.app.ProgramaParalelo
+Data: 2026-10-04T16:49:20.087416-03:00
+Comando: java -Duser.timezone=America/Sao_Paulo -cp target/classes br.edu.grupo10.app.ProgramaParalelo
+Entrada fornecida (uma linha por resposta):
+7
+1
+38
+27
+43
+3
+9
+82
+10
+1
+
+Saida original combinada (stdout + stderr):
+Quantidade de elementos (maior que zero): Preenchimento: 1 - manual | 2 - aleatorio: Elemento [0] (-128 a 127): Elemento [1] (-128 a 127): Elemento [2] (-128 a 127): Elemento [3] (-128 a 127): Elemento [4] (-128 a 127): Elemento [5] (-128 a 127): Elemento [6] (-128 a 127): Processadores disponiveis: 16
+Threads ordenadoras: 15
+Oct 04, 2026 4:49:19 PM br.edu.grupo10.ordenacao.ParallelMergeSort ordenar
+INFO: Iniciando 15 threads ordenadoras para 7 elementos.
+Oct 04, 2026 4:49:19 PM br.edu.grupo10.ordenacao.ParallelMergeSort ordenar
+INFO: Rodada de merge 1: 7 threads juntadoras.
+Oct 04, 2026 4:49:19 PM br.edu.grupo10.ordenacao.ParallelMergeSort ordenar
+INFO: Rodada de merge 2: 4 threads juntadoras.
+Oct 04, 2026 4:49:19 PM br.edu.grupo10.ordenacao.ParallelMergeSort ordenar
+INFO: Rodada de merge 3: 2 threads juntadoras.
+Oct 04, 2026 4:49:19 PM br.edu.grupo10.ordenacao.ParallelMergeSort ordenar
+INFO: Rodada de merge 4: 1 threads juntadoras.
+Oct 04, 2026 4:49:19 PM br.edu.grupo10.ordenacao.ParallelMergeSort ordenar
+INFO: Ordenacao paralela concluida.
+Tempo paralelo: 24.136 ms
+Exibicao: 1 - vetor todo | 2 - intervalo | 3 - nao exibir: [3, 9, 10, 27, 38, 43, 82]

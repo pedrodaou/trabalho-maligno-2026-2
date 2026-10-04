@@ -3,7 +3,9 @@ package br.edu.grupo10.ordenacao;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.function.BooleanSupplier;
 import java.util.logging.Logger;
 
 /**
@@ -14,6 +16,7 @@ public final class ParallelMergeSort {
     private static final Logger LOGGER = Logger.getLogger(ParallelMergeSort.class.getName());
 
     private final int quantidadeThreadsOrdenadoras;
+    private final boolean logsHabilitados;
 
     public ParallelMergeSort() {
         this(calcularQuantidadeThreads());
@@ -21,16 +24,26 @@ public final class ParallelMergeSort {
 
     /** Construtor publico para permitir testes com quantidades diferentes de threads. */
     public ParallelMergeSort(int quantidadeThreadsOrdenadoras) {
+        this(quantidadeThreadsOrdenadoras, true);
+    }
+
+    /** Permite medir o algoritmo sem incluir o custo da escrita dos logs. */
+    public ParallelMergeSort(int quantidadeThreadsOrdenadoras, boolean logsHabilitados) {
         if (quantidadeThreadsOrdenadoras < 1) {
             throw new IllegalArgumentException("A quantidade de threads deve ser positiva");
         }
         this.quantidadeThreadsOrdenadoras = quantidadeThreadsOrdenadoras;
+        this.logsHabilitados = logsHabilitados;
     }
 
     public static int calcularQuantidadeThreads() {
         int processadores = Runtime.getRuntime().availableProcessors();
-        // Uma maquina com uma unica CPU nao pode criar zero threads ordenadoras.
-        return Math.max(1, processadores - 1);
+        if (processadores < 2) {
+            throw new IllegalStateException(
+                    "O programa paralelo requer pelo menos 2 processadores disponiveis. "
+                            + "Use ProgramaSequencial nesta maquina.");
+        }
+        return processadores - 1;
     }
 
     public int getQuantidadeThreadsOrdenadoras() {
@@ -40,6 +53,9 @@ public final class ParallelMergeSort {
     /** Ordena o vetor no proprio lugar e aguarda todas as threads com join(). */
     public void ordenar(byte[] vetor) throws InterruptedException {
         Objects.requireNonNull(vetor, "O vetor nao pode ser nulo");
+        if (Thread.currentThread().isInterrupted()) {
+            throw new InterruptedException("Ordenacao interrompida antes do inicio");
+        }
         if (vetor.length < 2) {
             return;
         }
@@ -47,13 +63,15 @@ public final class ParallelMergeSort {
         byte[] auxiliar = new byte[vetor.length];
         List<Intervalo> intervalos = particionar(vetor.length, quantidadeThreadsOrdenadoras);
 
-        LOGGER.info(() -> String.format(
-                "Iniciando %d threads ordenadoras para %,d elementos.",
-                quantidadeThreadsOrdenadoras, vetor.length));
+        if (logsHabilitados) {
+            LOGGER.info(() -> String.format(
+                    "Iniciando %d threads ordenadoras para %,d elementos.",
+                    quantidadeThreadsOrdenadoras, vetor.length));
+        }
 
-        executarRodada(intervalos, "ordenadora", intervalo ->
+        executarRodada(intervalos, "ordenadora", (intervalo, cancelada) ->
                 MergeSort.ordenarIntervalo(
-                        vetor, auxiliar, intervalo.inicio(), intervalo.fim()));
+                        vetor, auxiliar, intervalo.inicio(), intervalo.fim(), cancelada));
 
         int numeroRodada = 1;
         while (intervalos.size() > 1) {
@@ -71,18 +89,22 @@ public final class ParallelMergeSort {
             }
 
             int rodadaAtual = numeroRodada;
-            LOGGER.info(() -> String.format(
-                    "Rodada de merge %d: %d threads juntadoras.",
-                    rodadaAtual, merges.size()));
+            if (logsHabilitados) {
+                LOGGER.info(() -> String.format(
+                        "Rodada de merge %d: %d threads juntadoras.",
+                        rodadaAtual, merges.size()));
+            }
 
-            executarRodada(merges, "juntadora-r" + numeroRodada, merge ->
+            executarRodada(merges, "juntadora-r" + numeroRodada, (merge, cancelada) ->
                     MergeSort.intercalar(
-                            vetor, auxiliar, merge.inicio(), merge.meio(), merge.fim()));
+                            vetor, auxiliar, merge.inicio(), merge.meio(), merge.fim(), cancelada));
 
             intervalos = proximos;
             numeroRodada++;
         }
-        LOGGER.info("Ordenacao paralela concluida.");
+        if (logsHabilitados) {
+            LOGGER.info("Ordenacao paralela concluida.");
+        }
     }
 
     private static List<Intervalo> particionar(int tamanho, int quantidadePartes) {
@@ -98,34 +120,81 @@ public final class ParallelMergeSort {
     private static <T> void executarRodada(
             List<T> tarefas, String prefixoNome, Acao<T> acao) throws InterruptedException {
         AtomicReference<Throwable> primeiraFalha = new AtomicReference<>();
+        AtomicBoolean cancelada = new AtomicBoolean();
         List<Thread> threads = new ArrayList<>(tarefas.size());
 
         for (int i = 0; i < tarefas.size(); i++) {
             T tarefa = tarefas.get(i);
             Thread thread = new Thread(() -> {
                 try {
-                    acao.executar(tarefa);
+                    acao.executar(tarefa, cancelada::get);
                 } catch (Throwable falha) {
                     primeiraFalha.compareAndSet(null, falha);
+                    cancelada.set(true);
                 }
             }, prefixoNome + "-" + (i + 1));
             threads.add(thread);
-            thread.start();
         }
 
-        for (Thread thread : threads) {
-            thread.join();
+        // Se uma thread nao puder iniciar, nenhuma ja iniciada fica abandonada.
+        try {
+            for (Thread thread : threads) {
+                thread.start();
+            }
+        } catch (RuntimeException | Error falha) {
+            cancelar(threads, cancelada);
+            aguardarTodas(threads, cancelada);
+            throw falha;
+        }
+
+        if (aguardarTodas(threads, cancelada)) {
+            throw new InterruptedException("Ordenacao cancelada; todas as threads finalizaram");
         }
 
         Throwable falha = primeiraFalha.get();
+        if (falha instanceof Error erro) {
+            throw erro;
+        }
         if (falha != null) {
             throw new IllegalStateException("Uma thread falhou durante a ordenacao", falha);
         }
     }
 
+    private static void cancelar(List<Thread> threads, AtomicBoolean cancelada) {
+        cancelada.set(true);
+        threads.forEach(Thread::interrupt);
+    }
+
+    /** Aguarda ate mesmo apos interrupcoes, garantindo que nao restem escritas no vetor. */
+    private static boolean aguardarTodas(List<Thread> threads, AtomicBoolean cancelada) {
+        boolean interrompida = Thread.interrupted();
+        if (interrompida) {
+            cancelar(threads, cancelada);
+        }
+        for (Thread thread : threads) {
+            boolean terminou = false;
+            while (!terminou) {
+                try {
+                    thread.join();
+                    terminou = true;
+                } catch (InterruptedException erro) {
+                    interrompida = true;
+                    cancelar(threads, cancelada);
+                }
+            }
+        }
+        if (Thread.interrupted()) {
+            interrompida = true;
+        }
+        if (interrompida) {
+            Thread.currentThread().interrupt();
+        }
+        return interrompida;
+    }
+
     @FunctionalInterface
     private interface Acao<T> {
-        void executar(T tarefa);
+        void executar(T tarefa, BooleanSupplier cancelada);
     }
 
     private record Intervalo(int inicio, int fim) {
@@ -134,4 +203,3 @@ public final class ParallelMergeSort {
     private record TarefaMerge(int inicio, int meio, int fim) {
     }
 }
-

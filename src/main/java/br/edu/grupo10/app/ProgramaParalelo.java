@@ -14,9 +14,9 @@ public final class ProgramaParalelo {
 
     public static void main(String[] args) {
         try (Teclado teclado = new Teclado()) {
+            ParallelMergeSort ordenador = new ParallelMergeSort();
             byte[] vetor = ConsoleVetores.lerVetor(teclado);
             int processadores = Runtime.getRuntime().availableProcessors();
-            ParallelMergeSort ordenador = new ParallelMergeSort();
 
             System.out.printf("Processadores disponiveis: %d%n", processadores);
             System.out.printf("Threads ordenadoras: %d%n", ordenador.getQuantidadeThreadsOrdenadoras());
@@ -28,6 +28,8 @@ public final class ProgramaParalelo {
             System.out.printf("Tempo paralelo: %.3f ms%n",
                     ConsoleVetores.nanosParaMilissegundos(duracao));
             ConsoleVetores.oferecerImpressao(teclado, vetor);
+        } catch (OutOfMemoryError erro) {
+            ConsoleVetores.informarFaltaDeMemoria();
         } catch (InterruptedException erro) {
             Thread.currentThread().interrupt();
             LOGGER.log(Level.SEVERE, "A execucao foi interrompida.", erro);

@@ -16,6 +16,8 @@ public final class Comparador {
 
     public static void main(String[] args) {
         try (Teclado teclado = new Teclado()) {
+            ParallelMergeSort ordenador = new ParallelMergeSort(
+                    ParallelMergeSort.calcularQuantidadeThreads(), false);
             byte[] original = ConsoleVetores.lerVetor(teclado);
             byte[] sequencial = original.clone();
             byte[] paralelo = original.clone();
@@ -25,7 +27,6 @@ public final class Comparador {
             MergeSort.ordenar(sequencial);
             long tempoSequencial = System.nanoTime() - inicioSequencial;
 
-            ParallelMergeSort ordenador = new ParallelMergeSort();
             LOGGER.info(() -> "Executando a versao paralela com "
                     + ordenador.getQuantidadeThreadsOrdenadoras() + " threads ordenadoras.");
             long inicioParalelo = System.nanoTime();
@@ -46,6 +47,8 @@ public final class Comparador {
             }
             System.out.println("Validacao: os dois resultados sao identicos.");
             ConsoleVetores.oferecerImpressao(teclado, paralelo);
+        } catch (OutOfMemoryError erro) {
+            ConsoleVetores.informarFaltaDeMemoria();
         } catch (InterruptedException erro) {
             Thread.currentThread().interrupt();
             LOGGER.log(Level.SEVERE, "A execucao foi interrompida.", erro);
