@@ -81,7 +81,7 @@ e o indicador de interrupcao da coordenadora e preservado.
 - [Relato de testes (10 linhas)](docs/RELATO_TESTES.md)
 - [Metodo, ambiente e resultados de desempenho](docs/DESEMPENHO.md)
 - [Capturas e registros originais](docs/evidencias/README.md)
-- [Diario com cronologia verificavel e conclusao](docs/DIARIO.md)
+- [Diario da equipe: reconstruicao para revisao e cronologia verificavel](docs/DIARIO.md)
 - [Roteiro para demonstracao](docs/APRESENTACAO.md)
 - [Checklist de entrega](docs/ENTREGA.md)
 

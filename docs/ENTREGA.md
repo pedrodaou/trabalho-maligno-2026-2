@@ -11,13 +11,14 @@
 - [x] Capturas das paginas de evidencia com saida real, HTMLs e logs originais.
 - [x] Relato de testes com dez linhas.
 - [x] Desempenho com ambiente, aquecimento, repeticoes, medianas e CSV.
-- [x] Diario com cronologia verificavel e conclusao tecnica.
+- [x] Diario com os tres integrantes, distribuicao e impressoes sugeridas,
+  cronologia verificavel e conclusao tecnica.
 - [x] Roteiro de demonstracao e script de empacotamento com SHA-256.
 
 ## Acoes dependentes da equipe ou do ambiente externo
 
-- [ ] Completar no diario os nomes confirmados, atividades, horarios e impressoes
-  individuais dos integrantes. Essas informacoes nao podem ser inferidas dos commits.
+- [ ] Revisar e confirmar as tarefas, janelas de trabalho e impressoes sugeridas
+  no diario reconstruido para que correspondam a experiencia real da equipe.
 - [ ] Se exigido pelo professor, fazer capturas do terminal na maquina da apresentacao.
 - [ ] Enviar `dist/trabalho-maligno-2026-2.zip` ao Canvas e conferir o recebimento.
 - [ ] Confirmar a escala e realizar a demonstracao presencial a partir de 06/10/2026.
