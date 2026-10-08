@@ -23,6 +23,10 @@ public class Menu {
             System.out.println("==========================================");
             System.out.print("Escolha uma opcao [0-5]: ");
 
+            if (!scanner.hasNextLine()) {
+                System.out.println("Fim da entrada de dados (EOF). Encerrando menu.");
+                return;
+            }
             String entrada = scanner.nextLine().trim();
 
             System.out.println();
